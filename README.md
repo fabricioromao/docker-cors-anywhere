@@ -3,4 +3,4 @@
 2- install Docker<br>
 3- install Docker-Compose<br>
 
-<code>run docker-compose up -d<code>
+<code>run docker-compose up -d</code>
