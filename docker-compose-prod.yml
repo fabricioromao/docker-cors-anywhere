@@ -1,0 +1,23 @@
+version: '3'
+
+networks:
+    traefik:
+        external: true
+
+services:
+  node:
+    build: .
+    restart: always
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/var/www/docker-cors-anywhere
+      - /var/www/docker-cors-anywhere/node_modules
+    networks:
+      - traefik
+    labels:
+      - "traefik.http.routers.glx-frontend.rule=Host(`cors-anywhere.locness.com.br`)"
+      - "traefik.docker.network=traefik"
+      - "traefik.enable=true"
+      - "traefik.basic.frontend.rule=Host:cors-anywhere.locness.com.br"
+  
